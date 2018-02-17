@@ -4,14 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{csrf_token()}}">
 
-        <title>Laravel-business listings</title>
+        <title>Laravel-contacts</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+
+        <!-- main app css -->
+        <link href="/css/app.css" rel="stylesheet">
 
     </head>
     <body>
@@ -30,16 +34,21 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel-contactstore
-                </div>
+            <div class="container">
+                <div id="app">
+                <contacts>
 
-                <div class="links">
-                    {{ link_to('foo/bar', $title = null, $attributes = array(), $secure = null) }}
-                    <a href="https://laravel.com/docs">Documentation</a>
+                </contacts>
                 </div>
             </div>
+
+
+
+
+
+
+
         </div>
+        <script src="/js/app.js"></script>
     </body>
 </html>

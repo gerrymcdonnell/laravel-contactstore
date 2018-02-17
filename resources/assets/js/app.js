@@ -20,6 +20,7 @@ window.Vue = require('vue');
 
 Vue.component('contacts', require('./components/Contacts.vue'));
 
+//the tag
 const app = new Vue({
     el: '#app'
 });

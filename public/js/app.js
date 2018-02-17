@@ -13808,6 +13808,7 @@ window.Vue = __webpack_require__(36);
 
 Vue.component('contacts', __webpack_require__(48));
 
+//the tag
 var app = new Vue({
   el: '#app'
 });
