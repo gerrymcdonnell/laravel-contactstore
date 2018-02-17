@@ -32,7 +32,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel-photoalbum
+                    Laravel-contactstore
                 </div>
 
                 <div class="links">

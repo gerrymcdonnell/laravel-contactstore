@@ -22,6 +22,27 @@ class CreateContactsTable extends Migration
 
             $table->timestamps();
         });
+
+
+        //setup default user
+        $rows = [
+            [
+                'name' => 'admin',
+                'email' => 'admin@blah.com',
+                'phone' => '01 23456',
+                'created_at'=>date('Y-m-d G:i:s'),
+                'updated_at'=>date('Y-m-d G:i:s')
+            ],
+            [
+                'name' => 'admin2',
+                'email' => 'admin2@blah.com',
+                'phone' => '01 23456',
+                'created_at'=>date('Y-m-d G:i:s'),
+                'updated_at'=>date('Y-m-d G:i:s')
+            ]
+        ];
+        // insert records
+        DB::table('contacts')->insert($rows);
     }
 
     /**
