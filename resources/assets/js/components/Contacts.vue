@@ -29,12 +29,14 @@
         </form>
 
         <h1> contacts </h1>
-
         <ul class="list-group">
             <li class="list-group-item" v-for="contact in list" >
-             {{contact.name}}
-
+                {{contact.name}} | {{contact.email}} | {{contact.phone}}
              </li>
+
+             <button @click="showContact(contact.id)" class="btn btn-default btn-xs">edit </button>
+
+             <button @click="deleteContact(contact.id)" class="btn btn-danger btn-xs">Delete </button>
         </ul>
 
     </div>
@@ -93,6 +95,20 @@
             },
             updateContact: function(id){
                 console.log('update id '+id);
+            },
+
+            showContact(id){
+                let self=this;
+                axios.get('api/contact/'+id)
+                    .then(function (response){
+
+                        //assign data
+                        self.contact.id=response.data.id;
+                        self.contact.name=response.data.name;
+                        self.contact.email=response.data.email;
+                        self.contact.phone=response.data.phone;
+                    })
+                    self.edit=true;
             }
         }
     }

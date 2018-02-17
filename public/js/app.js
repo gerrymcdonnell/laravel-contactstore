@@ -47094,6 +47094,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47145,6 +47147,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         updateContact: function updateContact(id) {
             console.log('update id ' + id);
+        },
+
+        showContact: function showContact(id) {
+            var self = this;
+            axios.get('api/contact/' + id).then(function (response) {
+
+                //assign data
+                self.contact.id = response.data.id;
+                self.contact.name = response.data.name;
+                self.contact.email = response.data.email;
+                self.contact.phone = response.data.phone;
+            });
+            self.edit = true;
         }
     }
 });
@@ -47293,11 +47308,48 @@ var render = function() {
     _c(
       "ul",
       { staticClass: "list-group" },
-      _vm._l(_vm.list, function(contact) {
-        return _c("li", { staticClass: "list-group-item" }, [
-          _vm._v("\n         " + _vm._s(contact.name) + "\n\n         ")
-        ])
-      })
+      [
+        _vm._l(_vm.list, function(contact) {
+          return _c("li", { staticClass: "list-group-item" }, [
+            _vm._v(
+              "\n            " +
+                _vm._s(contact.name) +
+                " | " +
+                _vm._s(contact.email) +
+                " | " +
+                _vm._s(contact.phone) +
+                "\n         "
+            )
+          ])
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default btn-xs",
+            on: {
+              click: function($event) {
+                _vm.showContact(_vm.contact.id)
+              }
+            }
+          },
+          [_vm._v("edit ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger btn-xs",
+            on: {
+              click: function($event) {
+                _vm.deleteContact(_vm.contact.id)
+              }
+            }
+          },
+          [_vm._v("Delete ")]
+        )
+      ],
+      2
     )
   ])
 }
