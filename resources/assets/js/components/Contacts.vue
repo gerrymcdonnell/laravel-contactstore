@@ -27,6 +27,16 @@
             </div>
 
         </form>
+
+        <h1> contacts </h1>
+
+        <ul class="list-group">
+            <li class="list-group-item" v-for="contact in list" >
+             {{contact.name}}
+
+             </li>
+        </ul>
+
     </div>
 </template>
 

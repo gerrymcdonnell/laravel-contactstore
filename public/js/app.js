@@ -47084,6 +47084,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47276,6 +47286,18 @@ var render = function() {
           )
         ])
       ]
+    ),
+    _vm._v(" "),
+    _c("h1", [_vm._v(" contacts ")]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "list-group" },
+      _vm._l(_vm.list, function(contact) {
+        return _c("li", { staticClass: "list-group-item" }, [
+          _vm._v("\n         " + _vm._s(contact.name) + "\n\n         ")
+        ])
+      })
     )
   ])
 }
