@@ -47097,6 +47097,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         console.log('Contacts Component mounted.');
+    },
+
+    methods: {
+
+        createContact: function createContact() {
+            console.log('Contacts create Component mounted.');
+        },
+
+        updateContact: function updateContact(id) {
+            console.log('update id ' + id);
+        }
     }
 });
 

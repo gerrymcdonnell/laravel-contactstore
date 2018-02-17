@@ -46,7 +46,17 @@
             }
         },
         mounted() {
-            console.log('Contacts Component mounted.')
+            console.log('Contacts Component mounted.');
+        },
+        methods:{
+
+            createContact: function(){
+                console.log('Contacts create Component mounted.');
+            },
+
+            updateContact: function(id){
+                console.log('update id '+id);
+            }
         }
     }
 </script>
