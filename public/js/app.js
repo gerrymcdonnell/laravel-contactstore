@@ -13798,6 +13798,9 @@ __webpack_require__(13);
 
 window.Vue = __webpack_require__(36);
 
+//import axios
+var axios = __webpack_require__(17);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -47097,14 +47100,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         console.log('Contacts Component mounted.');
+        this.fetchContactList();
     },
 
     methods: {
 
+        fetchContactList: function fetchContactList() {
+            var _this = this;
+
+            console.log('fetchContactList');
+
+            axios.get('api/contacts').then(function (response) {
+                _this.list = response.data;
+                console.log(response.data);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
         createContact: function createContact() {
             console.log('Contacts create Component mounted.');
-        },
 
+            var self = this;
+            var params = Object.assign({}, self.contact);
+
+            axios.post('api/contact/store', params).then(function () {
+                self.contact.name = '';
+                self.contact.email = '';
+                self.contact.phone = '';
+                self.edit = false;
+                self.fetchContactList();
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
         updateContact: function updateContact(id) {
             console.log('update id ' + id);
         }
